@@ -100,6 +100,16 @@ def main(stdscr):
                 
         move_enemies(enemies, player_x, player_y, game_map)
 
+        for e in enemies:
+            if e["x"] == player_x and e["y"] == player_y:
+                stdscr.clear()
+                stdscr.addstr(0, 0, "💀 You were slain by an enemy!")
+                stdscr.addstr(2, 0, "Press any key to exit...")
+                stdscr.refresh()
+                stdscr.getch()
+                return
+        
+        
         if not enemies:
             message = "🎉 You defeated all enemies! You win!"
             stdscr.clear()
