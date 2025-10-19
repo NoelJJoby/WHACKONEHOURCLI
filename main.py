@@ -97,8 +97,10 @@ def main(stdscr):
             else:
                 player_x, player_y = new_x, new_y
                 message = ""
+                
+                
         if len(enemies) == 0:
-            print("You Won the Game")
+            message = "You Won the Game"
             break
         
         
