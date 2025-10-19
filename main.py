@@ -98,15 +98,16 @@ def main(stdscr):
                 player_x, player_y = new_x, new_y
                 message = ""
                 
-                
-        if len(enemies) == 0:
-            message = "You Won the Game"
-            break
-        
-        
         move_enemies(enemies, player_x, player_y, game_map)
 
-                    
+        if not enemies:
+            message = "🎉 You defeated all enemies! You win!"
+            stdscr.clear()
+            draw_map(stdscr, game_map, player_x, player_y, enemies)
+            stdscr.addstr(MAP_HEIGHT + 1, 0, message)
+            stdscr.refresh()
+            stdscr.getch()  # wait for a key press
+            break
                 
 
 if __name__ == "__main__":
