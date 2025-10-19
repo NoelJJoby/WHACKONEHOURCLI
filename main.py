@@ -7,14 +7,12 @@ MAP_HEIGHT = 20
 
 
 
-
-
 def create_map():
     """Create a simple map with walls and floors."""
     game_map = [['#' if x == 0 or y == 0 or x == MAP_WIDTH - 1 or y == MAP_HEIGHT - 1 else '.' 
                  for x in range(MAP_WIDTH)] for y in range(MAP_HEIGHT)]
 
-    # Add a few random walls
+    
     for _ in range(60):
         x = random.randint(1, MAP_WIDTH - 2)
         y = random.randint(1, MAP_HEIGHT - 2)
@@ -27,11 +25,11 @@ def draw_map(stdscr, game_map, player_x, player_y, enemies):
             stdscr.addch(y, x, ch)
     
     
-    # Draw enemies
+    
     for e in enemies:
         stdscr.addch(e["y"], e["x"], e["char"])
         
-    stdscr.addch(player_y, player_x, '@')  # draw player
+    stdscr.addch(player_y, player_x, '@') 
 
 
 
@@ -47,7 +45,7 @@ def move_enemies(enemies, player_x, player_y, game_map):
         new_x = e["x"] + dx
         new_y = e["y"] + dy
 
-        # Only move if tile is walkable (.)
+        
         if game_map[new_y][new_x] == '.':
             e["x"], e["y"] = new_x, new_y
 
@@ -71,7 +69,10 @@ def main(stdscr):
 
     enemies = [
         {"x": 10, "y": 5, "char": "E"},
-        {"x": 25, "y": 10, "char": "E"},
+        {"x": 25, "y": 1, "char": "E"},
+        {"x": 30, "y": 9, "char": "E"},
+        {"x": 20, "y": 8, "char": "E"},
+        {"x": 18, "y": 7, "char": "E"},
     ]
     message = ""
 
