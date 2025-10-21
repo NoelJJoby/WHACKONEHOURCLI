@@ -74,7 +74,7 @@ def main(stdscr):
         {"x": 20, "y": 8, "char": "E"},
         {"x": 18, "y": 7, "char": "E"},
     ]
-    message = ""
+    message = ""#test
 
     while True:
         stdscr.clear()
